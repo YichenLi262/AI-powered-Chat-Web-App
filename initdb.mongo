@@ -1,0 +1,92 @@
+conn = new Mongo();
+db = conn.getDB("cpen322-messenger");
+db.dropDatabase();
+imgHost = '/';
+
+result = db.chatrooms.insertMany([
+	{
+		_id: 'room-1',
+		name: 'Everyone in CPEN322',
+	    image: imgHost+'assets/everyone-icon.png'
+	},
+	{
+		_id: 'room-2',
+		name: 'Foodies only',
+	    image: imgHost+'assets/bibimbap.jpg'
+	},
+	{
+		_id: 'room-3',
+		name: 'Gamers unite',
+	    image: imgHost+'assets/minecraft.jpg'
+	},
+	{
+		_id: 'room-4',
+		name: 'Canucks Fans',
+	    image: imgHost+'assets/canucks.png'
+	}
+]);
+
+print(result);
+
+result = db.conversations.insertMany([
+	{
+		room_id: 'room-1',
+		timestamp: 1596233125227,
+		messages: [{
+				username: 'Alice',
+				text: 'Hello!'
+			}, {
+				username: 'Bob',
+				text: 'Hi!'
+			}, {
+				username: 'Charlie',
+				text: "What's up?"
+		}]
+	}
+]);
+
+print(result);
+
+result = db.conversations.insertMany([
+	{
+		room_id: 'room-3',
+		timestamp: Date.now(),
+		messages: [
+			{
+				username: 'PlayerOne',
+				text: 'Anyone tried the new update for Minecraft yet?'
+			},
+			{
+				username: 'GameMaster',
+				text: 'Yes! The caves are amazing, but the mobs are much tougher now.'
+			},
+			{
+				username: 'PixelHunter',
+				text: "Totally agree! I got ambushed by a group of Creepers yesterday. It was intense!"
+			},
+			{
+				username: 'PlayerOne',
+				text: 'Haha, I barely survived my first encounter in the new biome. The loot is worth it, though.'
+			},
+			{
+				username: 'GameMaster',
+				text: 'I recommend using the new shield enchantment. It really helps in combat!'
+			},
+			{
+				username: 'PixelHunter',
+				text: "Good tip! By the way, has anyone discovered the secret dungeon yet?"
+			},
+			{
+				username: 'PlayerOne',
+				text: 'Not yet, but I’ve heard it’s somewhere near the new swamp area.'
+			},
+			{
+				username: 'GameMaster',
+				text: 'Alright, let’s team up later and explore it together. Could be fun!'
+			}
+		]
+	}
+]);
+
+print(result);
+

@@ -1,0 +1,284 @@
+/* [CSS] Create a CSS stylesheet named style.css to add relevant styles that would help you design the layout for the application. Except for the following constraints, feel free to choose your own design:
+
+When the width of the viewport is greater than or equal to 1024px, the width of #app-view should be 80% of its container (i.e., body).
+When the width of the viewport is less than 1024px and greater than or equal to 768px, the width of #app-view should be 90% of its container.
+When the width of the viewport is less than 768px, the width of #app-view should be 100% of its container.
+In chat.html, the message box for other users (i.e., div.message) should stick to the left, while the message box for the current application user (i.e., div.my-message) should stick to the right. They should have different colors.
+ */
+
+
+/* Add your CSS code here */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+#app-view {
+    background-color: #fff;
+    /* height: 100vh; */
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+
+    #app-view {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1023px) {
+
+    #app-view {
+        width: 90%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    #app-view {
+        width: 100%;
+    }
+}
+
+.message-list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    gap: 10px;
+}
+
+
+
+.message {
+    background-color: #dfe5ee;
+    padding: 10px;
+    margin: 0;
+    /* Eliminate unnecessary margins */
+    border-radius: 5px;
+    width: 90%;
+    align-self: flex-start;
+    /* By default messages are aligned to the left*/
+}
+
+.my-message {
+    background-color: #3b65a2;
+    align-self: flex-end;
+}
+
+
+
+
+#app-menu {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    background-color: #3b44c1;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    /* list-style-type: none; */
+}
+
+.menu-item {
+    flex: 1;
+    text-align: center;
+    padding: 20px 0;
+    list-style: none;
+    /* Remove list item symbols */
+    align-items: center;
+    /* vertical centering */
+}
+
+.menu-item:hover {
+    background-color: darkblue;
+
+    /* Background colour changes to dark blue on hover */
+    a {
+        color: yellow;
+    }
+}
+
+.menu-item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#page-view {
+    width: 100%;
+    height: calc(100vh - 60px);
+    /* 100% height minus the height of the menu */
+    overflow-y: auto;
+}
+
+.room-list {
+    flex: 1;
+    /* Fill the remaining space */
+    overflow-y: auto;
+    /* Add a scrollbar when the content is too long */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.room-list li {
+    padding: 20px;
+    background-color: rgb(244, 250, 255);
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: #b7b7b7;
+}
+
+.room-list li:hover {
+    background-color: #b7b7b7;
+}
+
+.room-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.page-control {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #3b44c1;
+    /* position: absolute;
+    bottom: 0; */
+    flex-shrink: 0;
+}
+
+.page-control input {
+    margin: 0px 5px 0px 30px;
+    /* Spacing between input boxes and buttons */
+}
+
+#chatInput {
+    margin: 0 0 0 30px;
+    flex-grow: 1;
+    box-sizing: border-box;
+    /* Ensure that padding does not affect the width calculation */
+    min-width: 0;
+    /* Avoid flexbox minimum width limit */
+}
+
+.page-control button {
+    margin: 0 30px 0 0;
+    padding: 10px 30px;
+    background-color: rgb(237, 237, 237);
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    /* Make sure the buttons don't shrink */
+}
+
+.page-control button:hover {
+    background-color: #868686;
+}
+
+.form-field {
+    display: flex;
+    padding: 30px;
+    margin: 0;
+}
+
+.form-field label {
+    flex-shrink: 0;
+    /* Make sure the label does not shrink */
+    width: 150px;
+    /* Fixed width for label */
+}
+
+p {
+    margin: 0;
+}
+
+h4 {
+    margin: 0;
+    padding: 10px;
+}
+
+img {
+    vertical-align: middle;
+    padding: 0 10px;
+}
+
+
+.circle-img {
+    border-radius: 50%;
+    /* Become round */
+    object-fit: cover;
+}
+
+#information {
+    height: 200px;
+    width: 200px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Assigment 5 */
+/* 
+#login-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#login-container input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3b44c1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#login-container button:hover {
+    background-color: #2a328f;
+} */
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3b44c1;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.floating-button:hover {
+    background-color: #2a328f;
+}
