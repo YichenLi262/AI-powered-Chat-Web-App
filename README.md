@@ -44,4 +44,15 @@ Or, since `express` is already declared as a dependency in `package.json`, you c
 
 This will install all required modules and set up the environment for the project.
 
+
+## Test Accounts
+
+The two test users initialized in the `initUsers.mongo` script are:
+- **alice** with password: `secret`
+- **bob** with password: `password`
+
+## Important Note
+
+Before running the server, you must add your own OpenAI API key at **line 219** in `server.js` to enable the AI assistant functionality.
+
 ---
